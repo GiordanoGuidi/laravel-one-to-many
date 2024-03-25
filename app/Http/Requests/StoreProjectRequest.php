@@ -28,6 +28,7 @@ class StoreProjectRequest extends FormRequest
             'title' => 'required|string|unique:projects',
             'content' => 'nullable|string',
             'image' => 'required|image|mimes:png,jpg,jpeg',
+            'type_id' => 'nullable|exists:types,id',
         ];
     }
 
@@ -41,6 +42,7 @@ class StoreProjectRequest extends FormRequest
             'image.required' => 'Il campo image è obbligatorio',
             'image.image' => 'Il file caricato deve essere un immagine',
             'image.mimes' => 'L\'immagine deve essere di formato PNG, JPG o JPEG',
+            'type_id' => 'Categoria non valida o non esistente',
         ];
     }
 }

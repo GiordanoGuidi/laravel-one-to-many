@@ -35,13 +35,22 @@
     {{--Type--}}
     <div class="col-4">
         <label for="type_id" class="form-label">Type</label>
-        <select class="form-select form-select-md mb-3" name="type_id" id="type_id">
+        <select class="form-select form-select-md  @error('type_id') is-invalid @elseif(old('type_id','')) is-valid @enderror" 
+        name="type_id" id="type_id">
             <option value="">Nessuna</option>
             @foreach ($types as $type )
             <option value="{{$type->id}}" @if(old('type_id', $project->type?->id) == $type->id) selected @endif>{{$type->label}}</option>
             @endforeach
-           
         </select>
+        @error('type_id')
+        <div class="ivalid-feedback">
+                {{$message}}
+        </div>
+        @else
+        <div class="form text text-muted">
+            Inserisci Tipo del progetto
+        </div>
+        @enderror
     </div>
     {{--Image--}}
     <div class="col-7">

@@ -19,7 +19,12 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
                 @endif
             <p>{{$project->content}}</p>
             <div>
-                <strong>Tipo:</strong><p>{{$project->type->label}}</p>
+                <strong>Tipo:</strong>
+                @if($project->type)
+                    <p>{{$project->type->label}}</p>
+                @else 
+                    <p>Nessuna</p>
+                @endif
                 <strong>Creato il :</strong><p>{{$project->created_at}}</p>
                 <strong>Ultima modifica :</strong><p>{{$project->updated_at}}</p>
             </div>

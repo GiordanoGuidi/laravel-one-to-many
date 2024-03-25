@@ -28,6 +28,8 @@ class UpdateProjectRequest extends FormRequest
             'title' => ['required', 'string', Rule::unique('projects')->ignore($id)],
             'content' => 'nullable|string',
             'image' => 'image|mimes:png,jpg,jpeg',
+            'type_id' => 'nullable|exists:types,id',
+
         ];
     }
 
@@ -40,6 +42,8 @@ class UpdateProjectRequest extends FormRequest
             'content.string' => 'Il campo content deve essere una parola',
             'image.image' => 'Il file caricato deve essere un immagine',
             'image.mimes' => 'L\'immagine deve essere di formato PNG, JPG o JPEG',
+            'type_id' => 'Categoria non valida o non esistente',
+
         ];
     }
 }
