@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'giordanpre45@hotmail.it',
         ]);
 
-        \App\Models\Project::factory(20)->create();
         $this->call(TypeSeeder::class);
+        \App\Models\Project::factory(20)->create();
     }
 }

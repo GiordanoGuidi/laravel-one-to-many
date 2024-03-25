@@ -19,14 +19,15 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
                 @endif
             <p>{{$project->content}}</p>
             <div>
-                <strong>Tipo:</strong>
+                <p><strong>Tipo:</strong>
                 @if($project->type)
-                    <p>{{$project->type->label}}</p>
+                <span class="badge" style="background-color:{{$project->type->color}}">{{$project->type?->label}}</span>
                 @else 
                     <p>Nessuna</p>
+                </p>
                 @endif
-                <strong>Creato il :</strong><p>{{$project->created_at}}</p>
-                <strong>Ultima modifica :</strong><p>{{$project->updated_at}}</p>
+                <p><strong>Creato il :</strong>{{$project->created_at}}</p>
+                <p><strong>Ultima modifica :</strong>{{$project->updated_at}}</p>
             </div>
         </div>
     </div>

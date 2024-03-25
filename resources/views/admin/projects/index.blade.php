@@ -31,7 +31,13 @@
                 <th scope="row">{{$project->id}}</th>
                 <td>{{$project->title}}</td>
                 <td>{{$project->slug}}</td>
-                <td>{{$project->type ? $project->type->label : '-'}}</td>
+                <td>
+                    @if($project->type)
+                        <span class="badge" style="background-color:{{$project->type->color}}">{{$project->type?->label}}</span>
+                    @else 
+                        <p>Nessuna</p>
+                @endif
+                </td>
                 <td>{{$project->created_at}}</td>
                 <td>{{$project->updated_at}}</td>
                 <td>
