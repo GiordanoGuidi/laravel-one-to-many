@@ -32,7 +32,7 @@ class ProjectController extends Controller
      */
     public function create(Type $type)
     {
-        $types = $type->all();
+        $types = Type::select('label', 'id')->get();
         $project = new Project();
         return view('admin.projects.create', compact('project', 'types'));
     }
@@ -72,11 +72,11 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Project $project)
+    public function edit(Project $project, Type $type)
     {
+        $types = Type::select('label', 'id')->get();
 
-
-        return view('admin.projects.edit', compact('project'));
+        return view('admin.projects.edit', compact('project', 'types'));
     }
 
     /**

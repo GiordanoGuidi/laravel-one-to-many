@@ -35,10 +35,10 @@
     {{--Type--}}
     <div class="col-4">
         <label for="type_id" class="form-label">Type</label>
-        <select class="form-select form-select-md mb-3" name="type_id" id="type_id" aria-label=".form-select-lg example">
-            <option value="">Open this select menu</option>
+        <select class="form-select form-select-md mb-3" name="type_id" id="type_id">
+            <option value="">Nessuna</option>
             @foreach ($types as $type )
-            <option value="{{$type->id}}">{{$type->label}}</option>
+            <option value="{{$type->id}}" @if(old('type_id', $project->type?->id) == $type->id) selected @endif>{{$type->label}}</option>
             @endforeach
            
         </select>
