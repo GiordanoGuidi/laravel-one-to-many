@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Type;
 use Illuminate\Validation\Rule;
 
 class ProjectController extends Controller
@@ -19,19 +20,21 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Type $type)
     {
+        $types = $type->all();
         $projects = Project::orderByDesc('updated_at')->orderByDesc('created_at')->paginate(10);
-        return view('admin.projects.index', compact('projects'));
+        return view('admin.projects.index', compact('projects', 'types'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Type $type)
     {
+        $types = $type->all();
         $project = new Project();
-        return view('admin.projects.create', compact('project'));
+        return view('admin.projects.create', compact('project', 'types'));
     }
 
     /**

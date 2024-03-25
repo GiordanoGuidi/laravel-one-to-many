@@ -32,8 +32,19 @@
             id="slug" value="{{Str::slug(old('title',$project->title))}}" disabled>
         </div>
     </div>
+    {{--Type--}}
+    <div class="col-4">
+        <label for="type_id" class="form-label">Type</label>
+        <select class="form-select form-select-md mb-3" name="type_id" id="type_id" aria-label=".form-select-lg example">
+            <option value="">Open this select menu</option>
+            @foreach ($types as $type )
+            <option value="{{$type->id}}">{{$type->label}}</option>
+            @endforeach
+           
+        </select>
+    </div>
     {{--Image--}}
-    <div class="col-11">
+    <div class="col-7">
         <div class="mb-3">
             <label for="image" class="form-label">Image</label>
             <input type="file" class="form-control @error('image') is-invalid @elseif(old('image','')) is-valid @enderror" 

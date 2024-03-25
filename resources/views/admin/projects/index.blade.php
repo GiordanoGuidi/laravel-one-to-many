@@ -14,6 +14,7 @@
               <th scope="col">Id</th>
               <th scope="col">Titolo</th>
               <th scope="col">Slug</th>
+              <th scope="col">Type</th>
               <th scope="col">Creato il</th>
               <th scope="col">Ultima modifica</th>
               <th scope="col" class="text-end">
@@ -30,6 +31,7 @@
                 <th scope="row">{{$project->id}}</th>
                 <td>{{$project->title}}</td>
                 <td>{{$project->slug}}</td>
+                <td>{{$project->type ? $project->type->label : '-'}}</td>
                 <td>{{$project->created_at}}</td>
                 <td>{{$project->updated_at}}</td>
                 <td>
